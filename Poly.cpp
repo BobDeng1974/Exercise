@@ -1,11 +1,8 @@
-#include"Poly.h"
-
-void PolyStart()
-{
+void PolyStart(){
 	Poly *p,*q;
 	p = (Poly*)malloc(sizeof(Poly));
 	p->next=NULL;
-	cout << "一元多项式运算" << endl;
+	cout << "涓�鍏冨椤瑰紡杩愮畻" << endl;
 
 	Slove(p);
 	Sort(p);
@@ -13,8 +10,7 @@ void PolyStart()
 	getch();
 }
 
-void Slove(Poly *p)
-{
+void Slove(Poly *p){
 	Poly *q;
 	string in;
 	stringstream ss;
@@ -33,20 +29,18 @@ void Slove(Poly *p)
 	regex patter("([+-]|^)([Xx])");
 	string re = "$1$101$2$3";
 	
-	for (n = 0; n < 2; n++)
-	{
-		cout << "请输入多项式:";
+	for (n = 0; n < 2; n++){
+		cout << "璇疯緭鍏ュ椤瑰紡:";
 		cin >> in;
 
 		in = regex_replace(in, patter, re);
-		//格式化字符串:x
+		//鏍煎紡鍖栧瓧绗︿覆:x
 		in=regex_replace(in, patt, replace);
 
 		in = regex_replace(in, pa, rep);
 		//cout << in << endl;
 
-		 for (std::sregex_iterator it(in.cbegin(), in.cend(), pattern), q; it != q; ++it)
-		 {
+		 for (std::sregex_iterator it(in.cbegin(), in.cend(), pattern), q; it != q; ++it){
 			//cout << "str: " << it->format("$1") << "\n";
 			//cout << it->format("$1")[0];
 
@@ -65,24 +59,20 @@ void Slove(Poly *p)
 	}
 }
 
-bool IsExt(int n,Poly *p)
-{
+bool IsExt(int n,Poly *p){
 	Poly *q;
 	q=p;
-	while(q!=NULL)
-	{
+	while(q!=NULL){
 		if(n==q->ind) return true;
 		q=q->next;
 	}
 	return false;
 }
 
-void Process(Poly *p,int coe,int ind)
-{
+void Process(Poly *p,int coe,int ind){
 	Poly *q;
-	//不存在该指数
-	if(!IsExt(ind,p)) 
-	{
+	//涓嶅瓨鍦ㄨ鎸囨暟
+	if(!IsExt(ind,p)) {
 		q = (Poly*)malloc(sizeof(Poly));
 		q->coe=coe;
 		q->ind=ind;
@@ -90,26 +80,21 @@ void Process(Poly *p,int coe,int ind)
 		while(p->next!=NULL) p=p->next;
 		p->next=q;
 	}
-	else
-	{
+	else{
 		q=p->next;
 		while(ind!=q->ind) q=q->next;
 		q->coe +=coe;
 	}
 }
 
-void Dis(Poly *p)
-{
+void Dis(Poly *p){
 	Poly *q=p;
 	int num=0;
-	cout<<"多项式结果为:";
-	for(q=q->next;q!=NULL;q=q->next)
-	{
-		if(q->coe!=0)
-		{
+	cout<<"澶氶」寮忕粨鏋滀负:";
+	for(q=q->next;q!=NULL;q=q->next){
+		if(q->coe!=0){
 			num++;
-			if(num>1)
-			{
+			if(num>1){
 				if(q->coe<0) cout<<"-";
 				else cout<<"+";
 			}
@@ -132,29 +117,24 @@ void Dis(Poly *p)
 	if(num==0) cout<<0<<endl;
 }
 
-void Sort(Poly *p)
-{
+void Sort(Poly *p){
 	Poly *pre,*max,*temp,*j,*inpre,*maxpre,*q;
 	int flag;
 
 	pre = p;
-	for (q = p->next; q != NULL; q = pre->next->next,pre=pre->next)
-	{
+	for (q = p->next; q != NULL; q = pre->next->next,pre=pre->next){
 		flag=0;
 		max = q;
 		inpre = pre;
-		for (j = q; j != NULL; j = j->next,inpre=inpre->next)
-		{
-			if (j->ind > max->ind)
-			{
+		for (j = q; j != NULL; j = j->next,inpre=inpre->next){
+			if (j->ind > max->ind){
 				flag=1;
 				max = j;
 				maxpre = inpre;
 			}	
 		}
 
-		if(flag==1)
-		{
+		if(flag==1){
 			pre->next = max;
 			maxpre->next = q;
 			temp = max->next;
