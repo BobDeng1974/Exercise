@@ -1,3 +1,8 @@
+typedef struct poly{
+	int coe, ind;
+	struct poly *next;
+}Poly;
+
 void PolyStart(){
 	Poly *p,*q;
 	p = (Poly*)malloc(sizeof(Poly));
