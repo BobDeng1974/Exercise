@@ -22,8 +22,7 @@ void SOCK() {
 		socket.connect(ep, ec);
 
 		std::cout << port << ' ';
-		if (ec)
-		{
+		if (ec) {
 			std::cout << boost::system::system_error(ec).what() << std::endl;
 			continue;
 		}
