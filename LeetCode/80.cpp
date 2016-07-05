@@ -12,8 +12,7 @@ public:
         int  k = 0, n;
         iter = number.begin();
         //vector<int>::iterator it=nums.begin();
-        while (iter != number.end())
-        {
+        while (iter != number.end()) {
             n = count(number.begin() + k, number.end(), number[k]);
             if (n >= 2) {
                 nums.insert(nums.begin() + num, number[k]);
