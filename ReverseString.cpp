@@ -1,4 +1,4 @@
-//输入字符串"a b c"，输出字符串"c b a"
+//输入字符串"abc def gh"，输出字符串"gh def abc"
 
 #include<string>
 #include<iostream>
