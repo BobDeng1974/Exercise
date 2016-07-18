@@ -18,7 +18,7 @@ int main() {
 	head = end = s.length() - 1;
 
 	while (head >= 0) {
-		while (head != 0 && s[head - 1] != ' ') head--;		//此处交换前后两个逻辑表达式顺序居然修复了个bug，我一定要记录下
+		while (head != 0 && s[head - 1] != ' ') head--;		//此处交换前后两个逻辑表达式顺序修复了个bug
 		temp = head;
 		while (temp <= end) {
 			res += s[temp];
