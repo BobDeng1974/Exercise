@@ -22,7 +22,7 @@ public:
         //int left = minDepth(root->left);
         //int right = minDepth(root->right);
         //if(left==1&&right==0 || left==0&&right==1) return 2;
-        else 
-        return minDepth(root->left)<=minDepth(root->right) ? minDepth(root->left)+1:minDepth(root->right)+1;
+        else return
+            minDepth(root->left)<=minDepth(root->right) ? minDepth(root->left)+1:minDepth(root->right)+1;
     }
 };
