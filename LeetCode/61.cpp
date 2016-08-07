@@ -30,7 +30,6 @@ public:
         
         while(temp->next!=NULL)
             temp=temp->next;
-            
         temp->next=head;
         
         return newhead;
