@@ -35,8 +35,8 @@ public:
         for(int i=1;i<=middle;i++)  {
             if(que.front()!=st.top())
                 return false;
-                que.pop();
-                st.pop();
+            que.pop();
+            st.pop();
         }
 
         return true;
