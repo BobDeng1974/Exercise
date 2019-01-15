@@ -1,0 +1,3 @@
+LIBRARY "FisheyeDLL"
+EXPORTS
+	Fish2PanoAccess @1
